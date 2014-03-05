@@ -1,0 +1,15 @@
+description "Strider upstart job"
+
+start on startup
+stop on shutdown
+
+setuid <%= node['strider']['user'] %>
+setgid <%= node['strider']['group'] %>
+
+script
+exec /bin/bash <<EOT
+  source /home/<%= node['strider']['user'] %>/.env
+  cd <%= node['strider']['root_dir'] %>
+  exec bin/strider
+EOT
+end script
