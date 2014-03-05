@@ -14,8 +14,6 @@ recipe "strider::upstart", "Users uptstart for running Strider-CD"
 
 supports 'ubuntu'
 
-depends 'user'
-depends 'npm'
-depends 'nodejs'
-depends 'mongodb'
-depends 'git'
+%w{user npm nodejs mongodb git}.each do |dep|
+  depends dep
+end
