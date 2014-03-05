@@ -1,4 +1,4 @@
-# chef-strider
+# chef-strider [![Build Status](https://travis-ci.org/wingrunr21/chef-strider.png)](https://travis-ci.org/wingrunr21/chef-strider)
 This cookbook installs and configures [Strider CD](https://github.com/Strider-CD/strider)
 
 ## Requirements
