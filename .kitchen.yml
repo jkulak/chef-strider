@@ -15,10 +15,12 @@ platforms:
 
 suites:
   - name: default
+    encrypted_data_bag_secret_key_path: "test/integration/default/encrypted_data_bag_secret"
+    data_bag_path: "test/integration/default/data_bags"
     run_list:
-      - recipe[strider-cd::default]
+      - recipe[strider::default]
     attributes:
-      strider-cd:
+      strider:
         users:
           'strider@example.com':
             password: password
