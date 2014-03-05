@@ -12,4 +12,6 @@ group :development do
   gem 'guard-rspec', '>= 4.2'
   gem 'foodcritic', '>= 3.0'
   gem 'chefspec', '>= 3.1'
+  gem 'knife-solo_data_bag'
+  gem 'stove', '~> 1.0'
 end
