@@ -9,8 +9,36 @@ default['strider']['db-uri']         = 'mongodb://localhost/strider-foss'
 default['strider']['server-name']    = node['fqdn']
 default['strider']['port']           = 4000
 
-default['strider']['data_bag']       = 'secrets'
-default['strider']['data_bag_item']  = 'strider-github-app'
+# Data bag setup
+default['strider']['data_bags'] = {
+  'github' => {
+    'enabled' => false,
+    'data_bag' => 'secrets',
+    'data_bag_item' => 'strider-github-app'
+  },
+  'bitbucket' => {
+    'enabled' => false,
+    'data_bag' => 'secrets',
+    'data_bag_item' => 'strider-bitbucket-app'
+  },
+  'smtp' => {
+    'enabled' => false,
+    'data_bag' => 'credentials',
+    'data_bag_item' => 'strider-smtp'
+  }
+}
+
+# Node attributes if we aren't using a data bag
+default['strider']['github'] = {
+  'client_id'     => nil,
+  'client_secret' => nil
+}
+
+default['strider']['bitbucket'] = {
+  'app_key'      => nil,
+  'app_secret'   => nil,
+  'hostname'     => "https://#{node['domain']}"
+}
 
 default['strider']['smtp'] = {
   'host' => nil,

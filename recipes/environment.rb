@@ -17,14 +17,22 @@
 # limitations under the License.
 #
 
-default['strider']['data_bag']       = 'secrets'
-default['strider']['data_bag_item']  = 'strider-github-app'
+# Extract service creds
+data_bags = node['strider']['data_bags']
+creds = {}
+%w{github bitbucket smtp}.each do |service|
+  if data_bags[service]['enabled']
+    bag = Chef::EncryptedDataBagItem.load(data_bags[service]['data_bag'], data_bags[service]['data_bag_item'])
+  else
+    bag = node['strider'][service] 
+  end
 
-github_app = = Chef::EncryptedDataBagItem.load(node['strider']['data_bag'], node['strider']['data_bag_item'])
+  creds[service] = bag
+end
 
 template "/home/#{node['strider']['user']}/.env" do
   source 'dotenv.erb'
   variables(
-    github_app: github_app
+    credentials: creds 
   )
 end

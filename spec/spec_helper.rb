@@ -32,3 +32,44 @@ def strider_users
     }
   }
 end
+
+def strider_service_credentials
+  @strider_service_credentials ||= {
+    'github' => {
+      'client_id'     => nil,
+      'client_secret' => nil
+    },
+    'bitbucket' => {
+      'app_key'      => nil,
+      'app_secret'   => nil,
+      'hostname'     => 'https://local'
+    },
+    'smtp' => {
+      'host' => nil,
+      'port' => 587,
+      'user' => nil,
+      'pass' => nil,
+      'from' => "Strider <strider@fauxhai.local>"
+    }
+  }
+end
+
+def strider_data_bags
+  @strider_data_bags ||= {
+    'github' => {
+      'client_id'     => 'foo',
+      'client_secret' => 'bar'
+    },
+    'bitbucket' => {
+      'app_key'      => 'baz',
+      'app_secret'   => 'batz'
+    },
+    'smtp' => {
+      'host' => 'smtp.googlemail.com',
+      'port' => 587,
+      'user' => 'fake@example.com',
+      'pass' => 'abc123',
+      'from' => "Strider <strider@example.com>"
+    }
+  }
+end
