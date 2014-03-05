@@ -37,7 +37,7 @@ default['strider']['github'] = {
 default['strider']['bitbucket'] = {
   'app_key'      => nil,
   'app_secret'   => nil,
-  'hostname'     => "https://#{node['domain']}"
+  'hostname'     => "https://#{node['fqdn']}"
 }
 
 default['strider']['smtp'] = {
