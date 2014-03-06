@@ -31,7 +31,8 @@ default['strider']['data_bags'] = {
 # Node attributes if we aren't using a data bag
 default['strider']['github'] = {
   'client_id'     => nil,
-  'client_secret' => nil
+  'client_secret' => nil,
+  'hostname'     => "https://#{node['fqdn']}"
 }
 
 default['strider']['bitbucket'] = {

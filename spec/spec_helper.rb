@@ -37,12 +37,13 @@ def strider_service_credentials
   @strider_service_credentials ||= {
     'github' => {
       'client_id'     => nil,
-      'client_secret' => nil
+      'client_secret' => nil,
+      'hostname'     => 'https://fauxhai.local'
     },
     'bitbucket' => {
       'app_key'      => nil,
       'app_secret'   => nil,
-      'hostname'     => 'https://local'
+      'hostname'     => 'https://fauxhai.local'
     },
     'smtp' => {
       'host' => nil,
