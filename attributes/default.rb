@@ -5,7 +5,8 @@ default['strider']['root_dir']       = '/opt/strider'
 default['strider']['git_repo']       = 'https://github.com/Strider-CD/strider.git'
 default['strider']['git_target']     = 'master'
 
-default['strider']['db-uri']         = 'mongodb://localhost/strider-foss'
+default['mongodb']['port']           = 27020
+default['strider']['db-uri']         = "mongodb://localhost:#{default['mongodb']['port']}/strider-foss"
 default['strider']['server-name']    = "https://#{node['fqdn']}"
 default['strider']['port']           = 4000
 
