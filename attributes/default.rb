@@ -6,7 +6,7 @@ default['strider']['git_repo']       = 'https://github.com/Strider-CD/strider.gi
 default['strider']['git_target']     = 'master'
 
 default['strider']['db-uri']         = 'mongodb://localhost/strider-foss'
-default['strider']['server-name']    = node['fqdn']
+default['strider']['server-name']    = "https://#{node['fqdn']}"
 default['strider']['port']           = 4000
 
 # Data bag setup
@@ -32,13 +32,13 @@ default['strider']['data_bags'] = {
 default['strider']['github'] = {
   'client_id'     => nil,
   'client_secret' => nil,
-  'hostname'     => "https://#{node['fqdn']}"
+  'hostname'     => default['strider']['server-name']
 }
 
 default['strider']['bitbucket'] = {
   'app_key'      => nil,
   'app_secret'   => nil,
-  'hostname'     => "https://#{node['fqdn']}"
+  'hostname'     => default['strider']['server-name']
 }
 
 default['strider']['smtp'] = {
