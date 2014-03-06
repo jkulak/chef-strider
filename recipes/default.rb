@@ -19,9 +19,8 @@
 
 include_recipe "git"
 include_recipe "nodejs::npm"
-include_recipe "mongodb::10gen_repo"
-include_recipe "mongodb"
 include_recipe "user"
+include_recipe "mongodb" if node['strider']['mongodb']['install']
 
 user_account node["strider"]["user"] do
   comment "Strider CD user"
