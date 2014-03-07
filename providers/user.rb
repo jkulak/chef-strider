@@ -6,6 +6,6 @@ action :add do
   admin = new_resource.admin
   execute "add Strider user #{email}" do
     command "strider addUser -l #{email} -p #{password} -a #{admin}"
-    only_if "mongo strider-foss --eval 'printjson(db.users.find({email:\"#{email}\"}).count())' --quiet | grep 0"
+    only_if "mongo #{new_resource.server} --eval 'printjson(db.users.find({email:\"#{email}\"}).count())' --quiet | grep 0"
   end
 end

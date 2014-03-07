@@ -22,5 +22,6 @@ node['strider']['users'].each do |user, attributes|
     %w{password admin}.each do |attr|
       send(attr, attributes[attr]) if attributes[attr]
     end
+    server node['strider']['db-uri']
   end
 end
