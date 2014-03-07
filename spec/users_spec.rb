@@ -10,7 +10,7 @@ describe 'strider::users' do
 
   let(:commands) do
     strider_users['users'].map do |email, attr|
-      "mongo mongodb://localhost:27020/strider-foss --eval 'printjson(db.users.find({email:\"#{email}\"}).count())' --quiet | grep 0"
+      "mongo localhost:27020/strider-foss --eval 'printjson(db.users.find({email:\"#{email}\"}).count())' --quiet | grep 0"
     end
   end
 
