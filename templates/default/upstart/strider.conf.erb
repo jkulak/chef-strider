@@ -1,6 +1,6 @@
 description "Strider upstart job"
 
-start on startup
+start on started mongodb
 stop on shutdown
 
 setuid <%= node['strider']['user'] %>
