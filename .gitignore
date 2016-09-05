@@ -1,0 +1,5 @@
+/cookbooks/
+/nodes/*
+/.vagrant/
+hosts.json
+
